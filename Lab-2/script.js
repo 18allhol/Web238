@@ -1,21 +1,14 @@
-// jQuery required features for the assignment are implemented below.
-//
-// Includes:
-//  - jQuery selectors (class, id, attribute)
-//  - At least one selector using a FILTER pseudo-selector (:contains, :has)
-//  - jQuery effects/animation (slideToggle, fadeIn/out)
-//  - Real-time search + dropdown filters
+// Allyvia Holland
 console.log("jQuery script is connected!");
 $(function () {
   // Footer year
   $("#year").text(new Date().getFullYear());
 
-  // 1) Search filter (text matches name/genre/country)
+  // 1) Search filter (text matches name/genre)
   $("#search").on("input", function () {
     const q = $(this).val().trim().toLowerCase();
 
-    // Using .filter() plus :contains case-insensitive approximation
-    // We'll manually check text for robust matching
+
     $(".card").each(function () {
       const $card = $(this);
       const hay = (
@@ -28,7 +21,7 @@ $(function () {
     });
   });
 
-  // 2) Dropdown filters (genre + year, combined)
+
   $("#genreSelect, #yearSelect").on("change", function () {
     const genre = $("#genreSelect").val();
     const year  = $("#yearSelect").val();
@@ -41,7 +34,6 @@ $(function () {
     });
   });
 
-  // 3) Expand/Collapse bios with animation
   $(".expand").on("click", function () {
     const $btn = $(this);
     const $more = $btn.closest(".card-body").find(".more");
@@ -54,7 +46,7 @@ $(function () {
     });
   });
 
-  // 4) Hide/Show all cards with label toggle + fade
+
   $("#toggleCards").on("click", function () {
     const $btn = $(this);
     const anyVisible = $(".card:visible").length > 0;
@@ -67,14 +59,14 @@ $(function () {
     }
   });
 
-  // 5) Example of a FILTER selector to highlight “featured” cards that HAVE an image node
-  //    This demonstrates jQuery’s :has() filter.
+
   $(".card.featured:has(img)").css("box-shadow", "0 16px 44px rgba(124,92,255,0.35)");
 
-  // Optional: hover focus state with jQuery
+
   $(".card img").on("mouseenter", function () {
     $(this).stop(true).animate({ opacity: 0.85 }, 150);
   }).on("mouseleave", function () {
     $(this).stop(true).animate({ opacity: 1 }, 150);
   });
+
 });
