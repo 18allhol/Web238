@@ -18,7 +18,7 @@ $(function () {
     });
   });
 
-  // 2) Dropdown FILTERS (genre + year, combined)
+  // 2) Dropdown FILTERS (genre + year)
   $("#genreSelect, #yearSelect").on("change", function () {
     const genre = $("#genreSelect").val();
     const year  = $("#yearSelect").val();
@@ -55,70 +55,62 @@ $(function () {
     }
   });
 
-  // 5) FILTER selector use (visible): highlight featured cards that HAVE an <img>
+  // 5) FILTER selector use: highlight featured cards that HAVE an <img>
   $(".card.featured:has(img)").css("box-shadow", "0 16px 44px rgba(124,92,255,0.35)");
 
-  // --- 6) Featured Gallery (3+ images, user-controlled, animated) ---
+  // 6) Featured Gallery (working version)
   (function gallery() {
-    // Only run if the gallery exists
-    if (!$("#gallery").length) return;
+    const $gallery = $("#gallery");
+    if (!$gallery.length) return;
 
-    const $slides = $("#gallery .slide");
-    const $dots   = $("#gallery .dot");
+    const $slides = $gallery.find(".slide");
+    const $dots   = $gallery.find(".dot");
+    if ($slides.length < 2) return;
+
     let i = 0;
 
-    function goTo(next, animate = true) {
+    function goTo(next) {
       if (next === i) return;
       const $current = $slides.eq(i);
       const $next    = $slides.eq(next);
 
-      // Update dots
-      $dots.removeClass("is-active").attr("aria-selected", "false")
-           .eq(next).addClass("is-active").attr("aria-selected", "true");
+      // dots state
+      $dots.removeClass("is-active").eq(next).addClass("is-active");
 
-      // Animate transition
-      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      if (reduce || !animate) {
-        $current.removeClass("is-active").hide();
-        $next.show().addClass("is-active");
-      } else {
-        $current.stop(true, true).fadeOut(200, function () {
-          $current.removeClass("is-active");
-          $next.stop(true, true).fadeIn(220).addClass("is-active");
-        });
-      }
-
+      // fade transition
+      $current.stop(true, true).fadeOut(250, function () {
+        $current.removeClass("is-active");
+        $next.fadeIn(250).addClass("is-active");
+      });
       i = next;
     }
 
     function next() { goTo((i + 1) % $slides.length); }
     function prev() { goTo((i - 1 + $slides.length) % $slides.length); }
 
-    // Init
-    $slides.hide().removeClass("is-active").eq(0).show().addClass("is-active");
-    $dots.removeClass("is-active").attr("aria-selected", "false").eq(0).addClass("is-active").attr("aria-selected", "true");
+    // init
+    $slides.hide().eq(0).show().addClass("is-active");
+    $dots.removeClass("is-active").eq(0).addClass("is-active");
 
-    // Buttons
-    $("#gallery .next").on("click", next);
-    $("#gallery .prev").on("click", prev);
+    // buttons
+    $gallery.find(".next").on("click", next);
+    $gallery.find(".prev").on("click", prev);
 
-    // Dots
-    $dots.each(function (idx) {
-      $(this).on("click", function () { goTo(idx); });
-    });
+    // dots
+    $dots.each(function (idx) { $(this).on("click", function () { goTo(idx); }); });
 
-    // Keyboard (left/right)
-    $("#gallery").attr("tabindex", "0").on("keydown", function (e) {
+    // keyboard
+    $gallery.attr("tabindex", "0").on("keydown", function (e) {
       if (e.key === "ArrowRight") next();
       if (e.key === "ArrowLeft")  prev();
     });
 
-    // Touch swipe (basic)
+    // touch swipe
     let startX = null;
-    $("#gallery .slides").on("touchstart", function (e) {
+    $gallery.find(".slides").on("touchstart", function (e) {
       startX = e.originalEvent.touches[0].clientX;
     });
-    $("#gallery .slides").on("touchend", function (e) {
+    $gallery.find(".slides").on("touchend", function (e) {
       if (startX == null) return;
       const endX = e.originalEvent.changedTouches[0].clientX;
       const dx = endX - startX;
