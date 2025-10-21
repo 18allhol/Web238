@@ -32,7 +32,34 @@
       </select>
     </form>
   </header>
+<section id="gallery" aria-label="Featured gallery">
+  <div class="gallery-wrap">
+    <button class="nav prev" aria-label="Previous image" type="button">‹</button>
 
+    <div class="slides" aria-live="polite">
+      <figure class="slide is-active">
+        <img src="lenae.jpg" alt="Artist promo 1">
+        <figcaption>Spotlight: Emerging Artist 1</figcaption>
+      </figure>
+      <figure class="slide">
+        <img src="sombr.jpg" alt="Artist promo 2">
+        <figcaption>Spotlight: Emerging Artist 2</figcaption>
+      </figure>
+      <figure class="slide">
+        <img src="chappel roan.jpg" alt="Artist promo 3">
+        <figcaption>Spotlight: Emerging Artist 3</figcaption>
+      </figure>
+    </div>
+
+    <button class="nav next" aria-label="Next image" type="button">›</button>
+  </div>
+
+  <div class="dots" role="tablist" aria-label="Select gallery slide">
+    <button class="dot is-active" role="tab" aria-selected="true" aria-controls="slide-1" type="button"></button>
+    <button class="dot" role="tab" aria-selected="false" aria-controls="slide-2" type="button"></button>
+    <button class="dot" role="tab" aria-selected="false" aria-controls="slide-3" type="button"></button>
+  </div>
+</section>
   <main id="grid" class="card-grid" aria-live="polite">
     <article class="card featured" data-name="Sabrina Carpenter" data-genre="pop" data-country="US" data-year="2024">
       <img src="sabrina.jpg" alt="Sabrina Carpenter"/>
