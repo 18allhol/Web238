@@ -1,16 +1,10 @@
-// jQuery required features for the assignment are implemented below.
-// Includes:
-//  - jQuery selectors (class, id, attribute)
-//  - At least one FILTER pseudo-selector (:has)
-//  - jQuery effects/animation (slideToggle, fadeIn/out)
-//  - Real-time search + dropdown filters
+
 console.log("jQuery script is connected!");
 
 $(function () {
-  // Footer year
+ 
   $("#year").text(new Date().getFullYear());
 
-  // 1) Real-time SEARCH
   $("#search").on("input", function () {
     const q = $(this).val().trim().toLowerCase();
     $(".card").each(function () {
@@ -22,9 +16,8 @@ $(function () {
       ).toLowerCase();
       $card.toggle(hay.indexOf(q) !== -1);
     });
-  }); // closed properly
+  }); 
 
-  // 2) Dropdown FILTERS (genre + year)
   $("#genreSelect, #yearSelect").on("change", function () {
     const genre = $("#genreSelect").val();
     const year  = $("#yearSelect").val();
@@ -36,7 +29,6 @@ $(function () {
     });
   });
 
-  // 3) Interactive component + animation: BIO toggle
   $(".expand").on("click", function () {
     const $btn  = $(this);
     const $more = $btn.closest(".card-body").find(".more");
@@ -48,7 +40,6 @@ $(function () {
     });
   });
 
-  // 4) NEW interactive control + animation: Hide/Show all cards
   $("#toggleCards").on("click", function () {
     const $btn = $(this);
     const anyVisible = $(".card:visible").length > 0;
@@ -60,7 +51,5 @@ $(function () {
       $btn.text("Hide All").attr("aria-pressed", "false");
     }
   });
-
-  // 5) FILTER selector use (visible): highlight featured cards that HAVE an <img>
   $(".card.featured:has(img)").css("box-shadow", "0 16px 44px rgba(124,92,255,0.35)");
 });
