@@ -1,0 +1,226 @@
+<!--Allyvia Holland 06 Nov 2025 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mini Travel Guide: Paris</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <script src="script.js"></script>
+</head>
+<body>
+
+<div class="page-bg"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="brand">
+      <span class="brand-mark">Paris</span>
+      <span class="brand-subtitle">Café Day Guide</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#intro" class="nav-link">Overview</a></li>
+        <li><a href="#spots" class="nav-link">Top Spots</a></li>
+        <li><a href="#food" class="nav-link">Pastries</a></li>
+        <li><a href="#faq" class="nav-link">FAQ</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="main-shell">
+  <div class="container main-card">
+   
+    <section id="intro" class="hero">
+      <div class="hero-content">
+        <div class="hero-text">
+          <p class="eyebrow">One-page travel moodboard</p>
+          <h1>Café Day in Paris ☕🥐</h1>
+          <p class="hero-copy">
+            Imagine slow coffee, flaky pastries, and famous views all in one simple plan.
+            This mini guide walks through a cozy, café-focused day in Paris.
+          </p>
+          <div class="hero-actions">
+            <button class="btn scroll-link" data-target="#spots">Show me top spots</button>
+            <button class="btn secondary scroll-link" data-target="#food">Skip to pastries</button>
+          </div>
+        </div>
+        <div class="hero-side">
+          <div class="stamp-card">
+            <span class="stamp-label">Paris Postcard</span>
+            <div class="stamp-emoji">🗼</div>
+            <p class="stamp-text">
+              Landmarks, cafés, river walks, and a small list of treats to taste.
+            </p>
+          </div>
+          <ul class="hero-pills">
+            <li>Walkable day plan</li>
+            <li>Cafés & pastries</li>
+            <li>Beginner-friendly tips</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="spots">
+      <div class="section-header">
+        <h2>Top Places to See</h2>
+        <p>
+          A simple mix of classic landmarks and softer corners of the city. Use the highlight
+          button to pop out the “must-see” stops.
+        </p>
+      </div>
+
+      <div class="grid">
+        <article class="card spot-card must-see">
+          <span class="tag">Must-see</span>
+          <h3>Eiffel Tower</h3>
+          <p>
+            Classic view of Paris, especially at night when the tower sparkles. Great for
+            pictures and wide city views.
+          </p>
+        </article>
+
+        <article class="card spot-card">
+          <span class="tag">Art</span>
+          <h3>Louvre Museum</h3>
+          <p>
+            One of the world’s largest art museums, home to the Mona Lisa and thousands of
+            other works from different time periods.
+          </p>
+        </article>
+
+        <article class="card spot-card must-see">
+          <span class="tag">Neighborhood</span>
+          <h3>Montmartre</h3>
+          <p>
+            Hilltop neighborhood with Sacré-Cœur Basilica, artists’ square, and winding
+            streets that feel like an old postcard.
+          </p>
+        </article>
+
+        <article class="card spot-card">
+          <span class="tag">River Walk</span>
+          <h3>Seine River Banks</h3>
+          <p>
+            Walk along the river, browse book stalls, and see many famous buildings and
+            bridges along the way.
+          </p>
+        </article>
+      </div>
+
+      <div class="section-actions">
+        <button id="toggle-spots" class="btn">Highlight must-see spots</button>
+        <button id="random-fact" class="btn secondary">Give me a Paris fact</button>
+      </div>
+      <div id="fact-box" class="fact-box">
+        Click “Give me a Paris fact” to see a fun detail about the city.
+      </div>
+    </section>
+
+    <section id="food">
+      <div class="section-header">
+        <h2>Pastries & Simple Street Food</h2>
+        <p>
+          A tiny starter list of things many visitors try when they stop at Paris cafés
+          or grab a quick snack from a street stand.
+        </p>
+      </div>
+
+      <ul class="food-list">
+        <li>
+          <span class="food-name">Croissant</span>
+          <span class="badge">Breakfast</span>
+        </li>
+        <li>
+          <span class="food-name">Crêpes (sweet or savory)</span>
+          <span class="badge">Street Food</span>
+        </li>
+        <li>
+          <span class="food-name">Macarons</span>
+          <span class="badge">Dessert</span>
+        </li>
+        <li>
+          <span class="food-name">Baguette sandwich</span>
+          <span class="badge">On the Go</span>
+        </li>
+      </ul>
+    </section>
+
+    <section id="faq">
+      <div class="section-header">
+        <h2>Quick FAQ</h2>
+        <p>Click each question to show or hide the answer.</p>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>What is a simple way to get around Paris?</span>
+          <span class="icon">›</span>
+        </div>
+        <div class="faq-answer">
+          Many visitors use the metro because it is fast and reaches most neighborhoods.
+          Walking is also common for short distances, especially between cafés and nearby sights.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>When is a popular time to visit?</span>
+          <span class="icon">›</span>
+        </div>
+        <div class="faq-answer">
+          Spring and early fall are popular because of mild weather and plenty of outdoor
+          activities, though people visit all year for museums, food, and views.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Do I need to know French to enjoy Paris?</span>
+          <span class="icon">›</span>
+        </div>
+        <div class="faq-answer">
+          Many people learn a few basic phrases, but you can still get around using English,
+          menus with pictures, signs, and simple gestures.
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-header">
+        <h2>Credits</h2>
+        <p>
+          This page was created as a jQuery final project focused on a single-page travel guide
+          for Paris with a café and pastry theme. Content is written for a school assignment.
+        </p>
+      </div>
+      <p>
+        Add your own contact info here if needed, for example:
+        <strong>allyviaholland@jccc.edu</strong>.
+      </p>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <p>&copy; <span id="year"></span> Mini Travel Guide: Paris. Built with HTML, CSS, and jQuery.</p>
+    <p>Content created for a course project. No external media was used.</p>
+  </div>
+</footer>
+
+<button id="backToTop" class="btn secondary backtop-floating">Back to top ↑</button>
+
+</body>
+</html>
